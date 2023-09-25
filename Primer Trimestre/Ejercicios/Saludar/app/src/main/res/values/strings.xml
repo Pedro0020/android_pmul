@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">App Saludos</string>
+    <string name="boton">Saludar</string>
+    <string name="respuesta"></string>
+    <string name="info">Escribe algo </string>
+</resources>
