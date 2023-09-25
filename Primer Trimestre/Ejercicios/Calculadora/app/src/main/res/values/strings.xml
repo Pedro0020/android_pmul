@@ -1,9 +1,0 @@
-<resources>
-    <string name="mas" translatable="false">+</string>
-    <string name="menos" translatable="false">-</string>
-    <string name="multiplicar" translatable="false">*</string>
-    <string name="result" translatable="false"></string>
-    <string name="app_name">Calculadora</string>
-    <string name="mensaje">Introduce números en ambas casillas</string>
-
-</resources>
