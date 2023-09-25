@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Mantenimiento Ajustes</string>
+    <string name="text_nombre">Nombre</string>
+    <string name="text_correo">Correo</string>
+    <string name="text_edad">Edad</string>
+    <string name="text_recibir_publi">Recibir Publicidad</string>
+    <string name="edit_nombre"></string>
+    <string name="edit_correo"></string>
+    <string name="edit_edad"></string>
+    <string name="edit_publi"></string>
+</resources>
