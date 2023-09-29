@@ -6,4 +6,5 @@
     <string name="recibirPublicidad" ></string>
     <string name="guardar" >Guardar</string>
     <string name="errorGuardarAjustes" >Error al guardar ajustes</string>
+    <string name="BORRAR_EN_alGUNmomneto" >borrame</string>
 </resources>
