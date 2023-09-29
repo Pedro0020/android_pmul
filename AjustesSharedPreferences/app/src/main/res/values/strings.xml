@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AjustesSharedPreferences</string>
+    <string name="nombre">Nombre</string>
+    <string name="correo"></string>
+    <string name="edad" ></string>
+    <string name="recibirPublicidad" ></string>
+    <string name="guardar" >Guardar</string>
+    <string name="errorGuardarAjustes" >Error al guardar ajustes</string>
 </resources>
