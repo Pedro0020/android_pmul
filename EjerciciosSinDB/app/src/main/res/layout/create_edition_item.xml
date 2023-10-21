@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/lblNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="@string/lbl_nombre"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/txtNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/hint_nombre"
+        android:inputType="text"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/lblNombre"
+        tools:layout_editor_absoluteX="0dp" />
+
+
+    <TextView
+        android:id="@+id/lblPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/lbl_precio"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/txtNombre"
+        tools:layout_editor_absoluteX="0dp" />
+
+
+    <EditText
+        android:id="@+id/txtPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/hint_precio"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/lblPrecio"
+        tools:layout_editor_absoluteX="0dp" />
+
+
+    <TextView
+        android:id="@+id/lblCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:inputType="numberDecimal"
+        android:text="@string/lbl_cantidad"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/txtPrecio"
+        tools:layout_editor_absoluteX="0dp" />
+
+
+    <EditText
+
+        android:id="@+id/txtCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/hint_cantidad"
+        android:inputType="number"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/lblCantidad"
+        tools:layout_editor_absoluteX="0dp" />
+
+
+    <Button
+        android:id="@+id/btnTerminarTarea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/nombre_boton_añadir_editar"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCantidad"
+        app:layout_constraintVertical_bias="0.028" />
+
+    <Button
+        android:id="@+id/btnCancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="34dp"
+        android:text="@string/nombre_boton_cancelar"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toEndOf="@+id/btnTerminarTarea"
+        app:layout_constraintTop_toBottomOf="@+id/txtCantidad"
+        app:layout_constraintVertical_bias="0.009" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

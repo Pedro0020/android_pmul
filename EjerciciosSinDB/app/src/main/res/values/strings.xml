@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name" translatable="false">EjerciciosSinDB</string>
+    <string name="lbl_nombre" translatable="false">Nombre Item\n</string>
+    <string name="lbl_precio" translatable="false">Precio\n</string>
+    <string name="lbl_cantidad" translatable="false">Cantidad\n</string>
+    <string name="nombre_boton_añadir_editar" translatable="false">Terminar tarea</string>
+    <string name="hint_nombre" translatable="false">Introduzca el nombre del Item</string>
+    <string name="hint_precio" translatable="false">Introduzca el precio del Item</string>
+    <string name="hint_cantidad" translatable="false">Introduzca la cantidad del producto</string>
+    <string name="nombre_boton_cancelar" translatable="false">Cancelar</string>
+    <string name="dinero">€</string>
+</resources>
