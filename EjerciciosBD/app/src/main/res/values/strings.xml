@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">EjerciciosBD</string>
+    <string name="lvLista_Item_Precio" />
+    <string name="lvLista_Item_Cantidad">1\n</string>
+</resources>
