@@ -2,6 +2,7 @@ package com.example.ejerciciosbd.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -19,7 +20,8 @@ import com.example.ejerciciosbd.model.Item;
 
 import java.util.ArrayList;
 
-public class ListaCompra extends AppCompatActivity {
+public class
+ListaCompra extends AppCompatActivity {
     public static final int AÑADIR_ITEM = 100;
     public static final int MODIFICAR_ITEM = 202;
     private Button btnNuevo;
@@ -57,7 +59,7 @@ public class ListaCompra extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                gestorDBCarro.
+                //gestorDBCarro.add();
             }
         });
 
@@ -72,5 +74,10 @@ public class ListaCompra extends AppCompatActivity {
     }
 
     private void añadirItemDB() {
+        Intent subActividad = new Intent(this,SelecionItem.class);
+        subActividad.putExtra("nombre", "");
+        subActividad.putExtra("cantidad", 0);
+        subActividad.putExtra("precio", 0.0);
+        this.startActivityForResult(subActividad, AÑADIR_ITEM);
     }
 }

@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "com.example.tramosdelaluz"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.tramosdelaluz"
-        minSdk = 24
-        targetSdk = 33
+        minSdk = 17
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
