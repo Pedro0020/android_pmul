@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MantenimientoClientes</string>
+    <string name="name_default_check">VIP</string>
 </resources>

@@ -1,11 +1,13 @@
 package com.example.tramosdelaluz;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.icu.number.LocalizedNumberFormatter;
 import android.icu.util.BuddhistCalendar;
 import android.icu.util.Calendar;
+import android.icu.util.TimeZone;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int TRAMO_ROJO = 16;
     public static final int TRAMO_AMARILLO = 20;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         csl = findViewById(R.id.layoutPrincipal);
         button = (Button) findViewById(R.id.button);
         //CAMBIAR DATE POR CALENDAR
-        Calendar cl  = java.util.Calendar.
+        Calendar cl  = Calendar.getInstance();
         cambiarFondoPorHora(new Date().getHours());
         button.setOnClickListener(v -> {
             try {
