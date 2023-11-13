@@ -7,12 +7,86 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/textViewTitulo"
+        android:layout_width="232dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="36dp"
+        android:text="@string/titulo_defaul"
+        android:textColor="@color/design_default_color_primary"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="232dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="85dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginBottom="48dp"
+        android:ems="10"
+        android:hint="@string/default_pass"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/btnInicio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="232dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="85dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginBottom="20dp"
+        android:autofillHints="username"
+        android:ems="10"
+        android:hint="@string/default_user"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="87dp"
+        android:layout_marginEnd="251dp"
+        android:layout_marginBottom="12dp"
+        android:autofillHints="password"
+        android:text="@string/texto_lb_usuario"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginEnd="218dp"
+        android:layout_marginBottom="7dp"
+        android:text="@string/texto_lb_contraseña"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="83dp"
+        android:layout_marginEnd="237dp"
+        android:layout_marginBottom="274dp"
+        android:text="@string/boton_inicio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
