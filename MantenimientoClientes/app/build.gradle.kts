@@ -4,11 +4,11 @@ plugins {
 
 android {
     namespace = "com.example.mantenimientoclientes"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.mantenimientoclientes"
-        minSdk = 17
+        minSdk = 19
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
