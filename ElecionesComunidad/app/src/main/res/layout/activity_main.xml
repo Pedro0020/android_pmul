@@ -22,27 +22,29 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/editTextPassword"
         android:layout_width="232dp"
         android:layout_height="62dp"
         android:layout_marginStart="85dp"
         android:layout_marginEnd="94dp"
         android:layout_marginBottom="48dp"
         android:ems="10"
+        android:text="123"
         android:hint="@string/default_pass"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/btnInicio"
+        app:layout_constraintBottom_toTopOf="@+id/btnAcceso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editTextUsr"
         android:layout_width="232dp"
         android:layout_height="62dp"
         android:layout_marginStart="85dp"
         android:layout_marginEnd="94dp"
         android:layout_marginBottom="20dp"
         android:autofillHints="username"
+        android:text="pedro"
         android:ems="10"
         android:hint="@string/default_user"
         android:inputType="text"
@@ -60,7 +62,7 @@
         android:autofillHints="password"
         android:text="@string/texto_lb_usuario"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUsr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
@@ -74,12 +76,12 @@
         android:layout_marginBottom="7dp"
         android:text="@string/texto_lb_contraseña"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
+        app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnInicio"
+        android:id="@+id/btnAcceso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="83dp"

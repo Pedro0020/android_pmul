@@ -6,4 +6,9 @@
     <string name="texto_lb_usuario">Usuario:</string>
     <string name="texto_lb_contraseña">Contraseña:</string>
     <string name="boton_inicio">Acceder</string>
+    <string name="contenidoText">Selecione Candidato</string>
+    <string name="texto_voto_defecto">Voto 0/3</string>
+    <string name="texto_voto_uno">Voto 1/3</string>
+    <string name="texto_voto_dos">Voto 2/3</string>
+    <string name="texto_voto_tres">Voto 3/3</string>
 </resources>
