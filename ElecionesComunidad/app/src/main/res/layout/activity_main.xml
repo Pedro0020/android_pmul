@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/editTextPassword"
         android:layout_width="232dp"
         android:layout_height="62dp"
         android:layout_marginStart="85dp"
@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editTextUsr"
         android:layout_width="232dp"
         android:layout_height="62dp"
         android:layout_marginStart="85dp"
@@ -60,7 +60,7 @@
         android:autofillHints="password"
         android:text="@string/texto_lb_usuario"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUsr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
@@ -74,7 +74,7 @@
         android:layout_marginBottom="7dp"
         android:text="@string/texto_lb_contraseña"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
+        app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
