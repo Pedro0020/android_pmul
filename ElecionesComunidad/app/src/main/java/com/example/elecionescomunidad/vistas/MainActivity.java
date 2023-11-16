@@ -1,9 +1,7 @@
-package com.example.elecionescomunidad;
+package com.example.elecionescomunidad.vistas;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.elecionescomunidad.R;
 import com.example.elecionescomunidad.bd.UsuariosDB;
 
 public class MainActivity extends AppCompatActivity {
