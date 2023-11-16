@@ -1,5 +1,6 @@
 package com.example.elecionescomunidad.vistas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -50,11 +51,10 @@ public class VotoActivity extends AppCompatActivity {
     }
 
     private void transferirVotosBD() {
-        Toast.makeText(this, "Hola ultimo voto", Toast.LENGTH_SHORT).show();
-
+        Intent intent = getIntent();
+        setResult(RESULT_OK, intent);
     }
 
     private void voto() {
-        Toast.makeText(this, "Hola acabo de votar", Toast.LENGTH_SHORT).show();
     }
 }
