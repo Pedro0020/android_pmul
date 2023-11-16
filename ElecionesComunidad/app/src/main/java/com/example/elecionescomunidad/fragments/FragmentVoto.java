@@ -12,12 +12,20 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.elecionescomunidad.R;
+import com.example.elecionescomunidad.interfaces.EventoClick;
 
 public class FragmentVoto extends Fragment {
     public static final int NUM_MAX_VOTACIONES = 3;
     private int numIntentos;
     private Button btnVoto;
+    EventoClick listener;
 
+    public FragmentVoto() {
+    }
+
+    public void setOnClickListener(EventoClick listener){
+        this.listener=listener;
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -31,6 +39,7 @@ public class FragmentVoto extends Fragment {
     private void funcionalidadBoton() {
         if (numIntentos <= 3) {
             numIntentos++;
+            listener.onClick();
         }
         switch (numIntentos) {
             case 1:
@@ -41,6 +50,7 @@ public class FragmentVoto extends Fragment {
                 break;
             case NUM_MAX_VOTACIONES:
                 btnVoto.setText(R.string.texto_voto_tres);
+                listener.ultimoClick();
                 break;
             default:
                 Toast.makeText(requireContext(),
