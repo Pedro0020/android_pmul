@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Color;
 import android.util.Log;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 
 import com.example.elecionescomunidad.modelos.Candidato;
@@ -77,17 +76,17 @@ public class EleccionesBD extends SQLiteOpenHelper {
     }
 
     private void cargarCandidatos(SQLiteDatabase db) {
-        addCandidato(db, "Doña Concha", 1);
+        addCandidato(db, "Concha", 1);
         addCandidato(db, "Marisa", 1);
         addCandidato(db, "Vicenta", 1);
-        addCandidato(db, "Lucía", 2);
-        addCandidato(db, "Belén", 2);
+        addCandidato(db, "Lucia", 2);
+        addCandidato(db, "Belen", 2);
         addCandidato(db, "Bea", 2);
         addCandidato(db, "Juan \"Chorizo\" Cuesta", 3);
         addCandidato(db, "Isabel \"Yerbas\"", 3);
         addCandidato(db, "Mauri", 3);
         addCandidato(db, "Paco", 4);
-        addCandidato(db, "\"Josemi\" Cuesta", 4);
+        addCandidato(db, "Josemi Cuesta", 4);
         addCandidato(db, "Roberto", 4);
         addCandidato(db, "Emilio Delgado", 5);
         addCandidato(db, "Mariano Delgado", 5);
@@ -100,7 +99,7 @@ public class EleccionesBD extends SQLiteOpenHelper {
         addPartidos(db, "Radiopactos", Color.MAGENTA);
         addPartidos(db, "La pija y amigas", Color.rgb(255, 128, 0));
         addPartidos(db, "Esta, nuestra Comunidad", Color.BLUE);
-        addPartidos(db, "Los pibes del videoclub", Color.YELLOW);
+        addPartidos(db, "Los pibes del videoclub", Color.CYAN);
         addPartidos(db, "Un poquito de porfavoh", Color.RED);
         Log.i("cargarPartidos", "termina de cargar los partidos");
 

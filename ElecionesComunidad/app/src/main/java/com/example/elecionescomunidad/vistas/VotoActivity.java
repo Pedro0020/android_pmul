@@ -1,7 +1,6 @@
 package com.example.elecionescomunidad.vistas;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -22,6 +21,7 @@ import java.util.ArrayList;
 public class VotoActivity extends AppCompatActivity {
     private FragmentVoto fragment;
     ArrayList<Candidato> candidatos;
+    ArrayList<Candidato> votados;
     private EleccionesBD elecciones;
     private CandidatoAdapter adp;
     private Spinner sp;
@@ -62,10 +62,12 @@ public class VotoActivity extends AppCompatActivity {
     }
 
     private void transferirVotosBD() {
+
         Intent intent = getIntent();
         setResult(RESULT_OK, intent);
     }
 
     private void voto() {
+        votados.add((Candidato) sp.getSelectedItem());
     }
 }

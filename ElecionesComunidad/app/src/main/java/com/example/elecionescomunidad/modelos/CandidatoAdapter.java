@@ -48,7 +48,7 @@ public class CandidatoAdapter extends BaseAdapter {
         if (v == null) {
             LayoutInflater inflater = (LayoutInflater)
                     context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inflater.inflate(this.layout, null);
+            v = inflater.inflate(this.layout, null, false);
         }
         Candidato candidato = (Candidato) getItem(position);
         TextView nombreCandidato = (TextView) v.findViewById(R.id.nombreCandidato);
