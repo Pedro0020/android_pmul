@@ -14,8 +14,15 @@
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <TextView
+        android:id="@+id/nombreCandidato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hola mundo"
         android:textSize="23sp" />
+
+    <TextView
+        android:id="@+id/nombrePartido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Este es otro text" />
 </LinearLayout>

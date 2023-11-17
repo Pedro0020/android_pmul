@@ -12,6 +12,11 @@ import android.util.Log;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 
+import com.example.elecionescomunidad.modelos.Candidato;
+import com.example.elecionescomunidad.modelos.Partido;
+
+import java.util.ArrayList;
+
 public class EleccionesBD extends SQLiteOpenHelper {
     public static final String BD_NAME = "EleccionesBD";
     public static final int BD_VERSION = 2;
@@ -53,7 +58,7 @@ public class EleccionesBD extends SQLiteOpenHelper {
                     + "( " + CANDIDATOS_ID_CANDIDATO + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + CANDIDATOS_NOMBRE + " TEXT NOT NULL, "
                     + CANDIDATOS_ID_PARTIDO + " INTEGER NOT NULL, "
-                    + CANDIDATOS_NUM_VOTOS + " INTEGER NOT NULL, "
+                    + CANDIDATOS_NUM_VOTOS + " INTEGER DEFAULT 0, "
                     + "FOREIGN KEY (" + CANDIDATOS_ID_PARTIDO + ") REFERENCES "
                     + TABLE_PARTIDOS + "(" + PARTIDOS_ID_PARTIDO + "))");
 
@@ -127,7 +132,9 @@ public class EleccionesBD extends SQLiteOpenHelper {
         } catch (SQLException exc) {
             Log.e("DBManager.addPartido", exc.getMessage());
         } finally {
-            cursor.close();
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
             db.endTransaction();
         }
 
@@ -141,7 +148,7 @@ public class EleccionesBD extends SQLiteOpenHelper {
         values.put(CANDIDATOS_ID_PARTIDO, idPartido);
         try {
             db.beginTransaction();
-            cursor = db.query(TABLE_PARTIDOS,
+            cursor = db.query(TABLE_CANDIDATOS,
                     new String[]{CANDIDATOS_ID_CANDIDATO},
                     CANDIDATOS_NOMBRE + "= ?",
                     new String[]{nombre}, null, null, null, "1");
@@ -154,10 +161,91 @@ public class EleccionesBD extends SQLiteOpenHelper {
         } catch (SQLException exc) {
             Log.e("DBManager.addCandidato", exc.getMessage());
         } finally {
-            cursor.close();
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
             db.endTransaction();
         }
 
     }
+    public ArrayList<Candidato> obtenerCandidatos() {
+        Log.i("obtenerCandidatos.inicio", "Inicia el método obtenerCandidatos");
+
+        ArrayList<Candidato> listaCandidatos = new ArrayList<>();
+        SQLiteDatabase bd = getReadableDatabase();
+        Cursor cursor = null;
+
+        try {
+            bd.beginTransaction();
+            cursor = bd.query(TABLE_CANDIDATOS, null, null,
+                    null, null, null, null, null);
+
+            while (cursor.moveToNext()) {
+                int idCandidatoIndex = cursor.getColumnIndex(CANDIDATOS_ID_CANDIDATO);
+                int nombreCandidatoIndex = cursor.getColumnIndex(CANDIDATOS_NOMBRE);
+                int idPartidoIndex = cursor.getColumnIndex(CANDIDATOS_ID_PARTIDO);
+                int numVotosIndex = cursor.getColumnIndex(CANDIDATOS_NUM_VOTOS);
+
+                int idCandidato = cursor.getInt(idCandidatoIndex);
+                String nombreCandidato = cursor.getString(nombreCandidatoIndex);
+                int idPartido = cursor.getInt(idPartidoIndex);
+                int numVotos = cursor.getInt(numVotosIndex);
+
+                // Obtener el partido asociado al candidato
+                Partido partido = obtenerPartidoPorId(bd, idPartido);
+
+                // Crear objeto Candidato y agregarlo a la lista
+                Candidato candidato = new Candidato(idCandidato, nombreCandidato, partido, numVotos);
+                listaCandidatos.add(candidato);
+            }
+
+            bd.setTransactionSuccessful();
+        } catch (SQLException exc) {
+            Log.e("obtenerCandidatos.Error", exc.getMessage());
+        } finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+            bd.endTransaction();
+        }
+
+        return listaCandidatos;
+    }
+    private Partido obtenerPartidoPorId(SQLiteDatabase db, int idPartido) {
+        Log.i("obtenerPartidoPorId.inicio", "Inicia el método obtenerPartidoPorId");
+
+        Partido partido = null;
+        Cursor cursor = null;
+
+        try {
+            String[] selectionArgs = {String.valueOf(idPartido)};
+            cursor = db.query(TABLE_PARTIDOS, null, PARTIDOS_ID_PARTIDO + "=?",
+                    selectionArgs, null, null, null, null);
+
+            if (cursor != null && cursor.moveToFirst()) {
+                int nombrePartidoIndex = cursor.getColumnIndex(PARTIDOS_NOMBRE);
+                int colorPartidoIndex = cursor.getColumnIndex(PARTIDOS_COLOR);
+
+                String nombrePartido = cursor.getString(nombrePartidoIndex);
+                int colorPartido = cursor.getInt(colorPartidoIndex);
+
+                partido = new Partido(nombrePartido, colorPartido, idPartido);
+            }
+
+        } catch (SQLException exc) {
+            Log.e("obtenerPartidoPorId.Error", exc.getMessage());
+        } finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+
+        return partido;
+    }
+
+
+
+
+
 
 }
