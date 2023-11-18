@@ -28,4 +28,14 @@ public class Candidato {
     public int getNumVotos() {
         return numVotos;
     }
+
+    @Override
+    public String toString() {
+        return "Candidato{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", partido=" + partido +
+                ", numVotos=" + numVotos +
+                '}';
+    }
 }

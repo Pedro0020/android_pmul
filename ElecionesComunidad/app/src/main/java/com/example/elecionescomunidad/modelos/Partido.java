@@ -22,5 +22,14 @@ public class Partido {
     public int getIdPartido() {
         return idPartido;
     }
+
+    @Override
+    public String toString() {
+        return "Partido{" +
+                "nombre='" + nombre + '\'' +
+                ", color=" + color +
+                ", idPartido=" + idPartido +
+                '}';
+    }
 }
 

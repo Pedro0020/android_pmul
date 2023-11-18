@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             if (RESULT_OK == resultCode) {
                 Toast.makeText(this, "Recuerde, cada voto cuenta" +
                         " gracias por votar", Toast.LENGTH_SHORT).show();
-                //db.marcarUsuarioComoHaVotado(data.getStringExtra("nombre"));
+                db.marcarUsuarioComoHaVotado(data.getStringExtra("nombre"));
             } else {
                 Toast.makeText(this, "Ha salido de la votacion" +
                         " antes de haber terminado", Toast.LENGTH_SHORT).show();
