@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 iniciarVentanaVotacion();
             } else {
                 Toast.makeText(this,
-                        usuario + " ya ha votado,\n acceso dengado", Toast.LENGTH_SHORT).show();
+                        usuario + " ya ha votado,\n acceso denegado", Toast.LENGTH_SHORT).show();
             }
         } else {
             Toast.makeText(this,
