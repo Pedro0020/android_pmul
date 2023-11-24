@@ -1,6 +1,7 @@
 package com.example.fragmentbotonlimitado.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +42,9 @@ public class BtnLimitado extends Fragment {
 
     private void pulsacion() {
         if (pulsaciones < numPulsacionesTotales) {
-            cl.click(pulsaciones++);
+            cl.click();
+            pulsaciones++;
+            Log.i("Btn","click");
         } else if (pulsaciones == numPulsacionesTotales) {
 
         }

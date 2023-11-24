@@ -27,8 +27,15 @@
         tools:layout_editor_absoluteX="96dp"
         tools:layout_editor_absoluteY="157dp" />
 
+    <CheckBox
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/condiciones" />
+
     <FrameLayout
         android:id="@+id/buttonFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
 </LinearLayout>
