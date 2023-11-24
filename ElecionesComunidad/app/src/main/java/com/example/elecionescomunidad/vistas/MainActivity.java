@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        db = new UsuariosDB(this);
+        db = UsuariosDB.getInstance(this);
         btnEntrar = findViewById(R.id.btnAcceso);
         usr = findViewById(R.id.editTextUsr);
         pass = findViewById(R.id.editTextPassword);

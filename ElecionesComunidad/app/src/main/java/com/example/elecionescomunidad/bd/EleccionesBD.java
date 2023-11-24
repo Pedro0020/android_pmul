@@ -33,9 +33,17 @@ public class EleccionesBD extends SQLiteOpenHelper {
 
     public static final String CANDIDATOS_ID_PARTIDO = "id_partido";
     public static final String CANDIDATOS_NUM_VOTOS = "num_votos";
+    private static EleccionesBD instancia;
 
-    public EleccionesBD(@Nullable Context context) {
+    private EleccionesBD(@Nullable Context context) {
         super(context, BD_NAME, null, BD_VERSION);
+    }
+
+    public static EleccionesBD getInstance(Context contexto) {
+        if (instancia == null) {
+            instancia = new EleccionesBD(contexto);
+        }
+        return instancia;
     }
 
     @Override
