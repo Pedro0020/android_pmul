@@ -1,6 +1,7 @@
 package com.example.elecionescomunidad.vistas;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Spinner;
@@ -13,12 +14,14 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.elecionescomunidad.R;
 import com.example.elecionescomunidad.bd.EleccionesBD;
+import com.example.elecionescomunidad.bd.UsuariosDB;
 import com.example.elecionescomunidad.fragments.FragmentVoto;
 import com.example.elecionescomunidad.interfaces.EventoClick;
 import com.example.elecionescomunidad.modelos.Candidato;
 import com.example.elecionescomunidad.modelos.CandidatoAdapter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class VotoActivity extends AppCompatActivity {
     ArrayList<Candidato> candidatos;
@@ -26,6 +29,7 @@ public class VotoActivity extends AppCompatActivity {
     private EleccionesBD elecciones;
     private CandidatoAdapter adp;
     private Spinner sp;
+    private UsuariosDB us;
 
     private TextView resultados;
 
@@ -34,6 +38,7 @@ public class VotoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selecion_voto);
         elecciones = new EleccionesBD(this);
+        us = new UsuariosDB(this);
         resultados = (TextView) findViewById(R.id.txtResulados);
         resultados.setVisibility(View.GONE);
         votados = new ArrayList<>();
@@ -65,19 +70,35 @@ public class VotoActivity extends AppCompatActivity {
     }
 
     private void transferirVotosBD() {
+        Intent i = getIntent();
+        elecciones.addVotosCandidatos(votados);
+        //us.marcarUsuarioComoHaVotado(i.getStringExtra("nombre"));
         mostrarVotos();
-
         Intent intent = getIntent();
         setResult(RESULT_OK, intent);
 
     }
 
     private void mostrarVotos() {
-
+        ArrayList<Candidato> l = elecciones.obtenerCandidatos();
+        Collections.sort(l, (o1, o2) -> Integer.compare(o2.getNumVotos(), o1.getNumVotos()));
+        //Borro los candidatos que no tengan botos
+        //Si es mayor o igual a la versión 24 entra aqui
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            l.removeIf(candidato -> candidato.getNumVotos() == 0);
+        } else {
+            //sino aquí
+            for (int i = 0; i < l.size(); i++) {
+                if (l.get(i).getNumVotos() == 0) {
+                    l.remove(i);
+                }
+            }
+        }
         StringBuilder sb = new StringBuilder();
-        for (Candidato cd : votados) {
-            sb.append(cd.getNombre()).append(" 1 voto").append("\n");
-            elecciones.addVotoIdCandidato(cd.getId());
+        for (Candidato cd : l) {
+            sb.append(cd.getNombre()).append(" ").append(cd.getNumVotos()).append(
+                    " votos").append("\n");
+
         }
         resultados.setVisibility(View.VISIBLE);
         resultados.setText(sb.toString());

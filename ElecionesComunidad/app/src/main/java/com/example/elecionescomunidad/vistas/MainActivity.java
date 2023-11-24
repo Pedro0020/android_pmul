@@ -1,14 +1,14 @@
 package com.example.elecionescomunidad.vistas;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.elecionescomunidad.R;
 import com.example.elecionescomunidad.bd.UsuariosDB;
@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
             if (RESULT_OK == resultCode) {
                 Toast.makeText(this, "Recuerde, cada voto cuenta" +
                         " gracias por votar", Toast.LENGTH_SHORT).show();
-                db.marcarUsuarioComoHaVotado(data.getStringExtra("nombre"));
             } else {
                 Toast.makeText(this, "Ha salido de la votacion" +
                         " antes de haber terminado", Toast.LENGTH_SHORT).show();
