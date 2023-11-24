@@ -41,7 +41,9 @@ public class BtnLimitado extends Fragment {
 
     private void pulsacion() {
         if (pulsaciones < numPulsacionesTotales) {
-            cl.click(pulsaciones++);
+            if (cl.click()) {
+                pulsaciones++;
+            }
         } else if (pulsaciones == numPulsacionesTotales) {
 
         }
