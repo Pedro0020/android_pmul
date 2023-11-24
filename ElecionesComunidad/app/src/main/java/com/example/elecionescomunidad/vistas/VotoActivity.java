@@ -37,8 +37,8 @@ public class VotoActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selecion_voto);
-        elecciones = new EleccionesBD(this);
-        us = new UsuariosDB(this);
+        elecciones = EleccionesBD.getInstance(this);
+        us = UsuariosDB.getInstance(this);
         resultados = (TextView) findViewById(R.id.txtResulados);
         resultados.setVisibility(View.GONE);
         votados = new ArrayList<>();
@@ -72,6 +72,7 @@ public class VotoActivity extends AppCompatActivity {
     private void transferirVotosBD() {
         Intent i = getIntent();
         elecciones.addVotosCandidatos(votados);
+        //Descomentar esta linea para que bloquee al usuario
         //us.marcarUsuarioComoHaVotado(i.getStringExtra("nombre"));
         mostrarVotos();
         Intent intent = getIntent();

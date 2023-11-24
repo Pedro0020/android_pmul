@@ -17,9 +17,17 @@ public class UsuariosDB extends SQLiteOpenHelper {
     public static final String USUARIOS_NOMBRE = "nombre";
     public static final String USUARIOS_PASSWORD = "contraseña";
     public static final String USUARIOS_HA_VOTADO = "ha_votado";
+    private static UsuariosDB instancia;
 
-    public UsuariosDB(@Nullable Context context) {
+    private UsuariosDB(@Nullable Context context) {
         super(context, BD_NAME, null, BD_VERSION);
+    }
+
+    public static UsuariosDB getInstance(Context context) {
+        if (instancia == null) {
+            instancia = new UsuariosDB(context);
+        }
+        return instancia;
     }
 
     @Override
