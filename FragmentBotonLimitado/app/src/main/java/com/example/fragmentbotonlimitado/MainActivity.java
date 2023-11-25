@@ -14,8 +14,8 @@ import com.example.fragmentbotonlimitado.interfaces.Click;
 public class MainActivity extends AppCompatActivity {
 
     public static final int NUM_PULSACIONES_TOTALES = 3;
-    private EditText pass;
     private EditText usr;
+    private EditText pass;
     private CheckBox ch;
 
     @Override
@@ -37,8 +37,16 @@ public class MainActivity extends AppCompatActivity {
         }
         fragment.eventoClick(new Click() {
             @Override
-            public void click() {
-                iniciarSesion();
+
+            public boolean click() {
+                boolean est = false;
+                if (usr.getText().length() > 0 && pass.getText().length() > 0 && ch.isChecked()) {
+                    est = true;
+                    Toast.makeText(MainActivity.this, "ClickVAlido", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "click no valido", Toast.LENGTH_SHORT).show();
+                }
+                return est;
             }
 
             @Override
