@@ -1,7 +1,7 @@
 package com.example.fragmentbotonlimitado.interfaces;
 
 public interface Click {
-    public void click();
+    public boolean click();
 
     public void ultimoClick();
 }
