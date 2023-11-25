@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ListaFiltrada</string>
+    <string name="name_filtro">Filtro:</string>
+    <string name="info_edit_filtro">Inserte caracteres</string>
 </resources>
