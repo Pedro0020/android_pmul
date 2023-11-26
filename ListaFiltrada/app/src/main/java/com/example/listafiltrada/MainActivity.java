@@ -7,12 +7,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String LISTA_DE_FRUTAS = "LISTA DE FRUTAS";
     private EditText filtro;
     private Spinner contenedor;
-    private ArrayAdapter adapter;
+    private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         contenedor = findViewById(R.id.spinner);
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, llenarLista());
         contenedor.setAdapter(adapter);
+
         filtro.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -46,56 +49,48 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 adapter.clear();
-                adapter.addAll(resultadosFiltro(filtro.getText().toString()));
+                adapter.addAll(resultadosFiltro(s.toString()));
                 adapter.notifyDataSetChanged();
                 contenedor.setSelection(0);
+
             }
         });
     }
 
+
     private ArrayList<String> resultadosFiltro(String palabra) {
-        ArrayList<String> listaOriginal = llenarLista();
-        ArrayList<String> listaFiltrada = new ArrayList<>(listaOriginal); // Crear una copia de la lista original
+        ArrayList<String> lista = llenarLista();
 
         if (!palabra.isEmpty()) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                listaFiltrada.removeIf(s -> s.contains(palabra));
-            } else {
-                Iterator<String> iterator = listaFiltrada.iterator();
-                while (iterator.hasNext()) {
-                    String s = iterator.next();
-                    if (s.contains(palabra)) {
-                        iterator.remove();
-                    }
+                Log.i("RMEOVE IF", palabra);
+                lista.removeIf(s -> !s.contains(palabra));
+                if (!lista.contains(LISTA_DE_FRUTAS)) {
+             lista.add(0, LISTA_DE_FRUTAS);
                 }
             }
+        } else {
+        Log.i("No RMEOVE IF", palabra);
+        Iterator<String> iterator = lista.iterator();
+        while (iterator.hasNext()) {
+            String s = iterator.next();
+            if (!s.contains(palabra)) {
+                iterator.remove();
+            }
         }
-        return listaFiltrada;
+        if (!lista.contains(LISTA_DE_FRUTAS)) {
+            lista.add(0, LISTA_DE_FRUTAS);
+        }
+        }
+        return lista;
     }
 
 
     private ArrayList<String> llenarLista() {
-        String[] frutas = {
-                LISTA_DE_FRUTAS,
-                "Manzana",
-                "Naranja",
-                "Banana",
-                "Uva",
-                "Cereza",
-                "Pera",
-                "Kiwi",
-                "Piña",
-                "Mango",
-                "Fresa",
-                "Sandía",
-                "Melón",
-                "Ciruela",
-                "Coco",
-                "Papaya",
-                "Aguacate",
-                "Albaricoque",
-                "Granada"
-        };
+        String[] frutas = {LISTA_DE_FRUTAS, "Manzana",
+                "Manzana Golden", "Naranja", "Banana", "Uva", "Cereza", "Pera",
+                "Kiwi", "Piña", "Mango", "Fresa", "Sandía", "Melón", "Ciruela",
+                "Coco", "Papaya", "Aguacate", "Albaricoque", "Granada"};
         return new ArrayList<>(Arrays.asList(frutas));
     }
 }
