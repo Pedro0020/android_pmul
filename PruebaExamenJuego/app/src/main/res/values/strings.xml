@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">PruebaExamenJuego</string>
+    <string name="txt_defecto_boton_dado">Tirar</string>
+    <string name="racha">"Racha: "</string>
+    <string name="dafault_spinner">Selecione Número</string>
+    <string name="tirar_todos">Tirar Todos</string>
+    <string name="lanzamientos_valor_defecto">Lanzamientos Efectuados: 0</string>
+    <string name="frase_lanzamientos">Lanzamientos Efectuados: </string>
+    <string name="btnComenzar">Comenzar</string>
 </resources>
