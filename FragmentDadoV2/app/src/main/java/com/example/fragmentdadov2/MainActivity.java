@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements FragmentDado.OnFr
         Intent intent = new Intent(this, Ranking.class);
         intent.putExtra("numeroCaras", num);
         intent.putExtra("tiradas", tiradas);
-        intent.putExtra("tiradas", tiradas);
         startActivity(intent);
     }
 

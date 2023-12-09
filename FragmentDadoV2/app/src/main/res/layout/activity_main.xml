@@ -38,12 +38,12 @@
         android:layout_gravity="center_horizontal"
         app:layout_constraintBottom_toTopOf="@+id/frgDado2"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.13"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:layout="@layout/activity_fragments_dado_con_lineal" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/frgDado2"
@@ -56,7 +56,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frgDado1"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.45"
+        tools:layout="@layout/activity_fragments_dado_con_lineal" />
 
     <TextView
         android:id="@+id/tvTiradas"
