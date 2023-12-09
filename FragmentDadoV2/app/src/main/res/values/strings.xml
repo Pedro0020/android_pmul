@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FragmentDadoV2</string>
+    <string name="texto_voto">Vota</string>
+    <string name="text_racha_defecto">0</string>
+    <string name="text_racha">Racha</string>
+    <string name="texto_frase">"Resultado:   "</string>
+    <string name="texto_comenzar">Comenzar</string>
+    <string name="texto_Tirar">Tirar</string>
+    <string name="num_dados">Número de caras</string>
+    <string name="lanzamientos">0</string>
+    <string name="fin_partida">Finalizar y Guardar</string>
+</resources>
