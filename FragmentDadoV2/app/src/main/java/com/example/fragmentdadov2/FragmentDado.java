@@ -33,7 +33,7 @@ public class FragmentDado extends Fragment {
 
 
     public interface OnFragmentListener {
-        boolean onDadoLanzado(FragmentDado frgDado, Integer num);
+        void onDadoLanzado(FragmentDado frgDado, Integer num);
 
     }
 

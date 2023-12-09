@@ -9,4 +9,7 @@
     <string name="num_dados">Número de caras</string>
     <string name="lanzamientos">0</string>
     <string name="fin_partida">Finalizar y Guardar</string>
+    <string name="txt_dificultad">Dificultad:</string>
+    <string name="txt_utima_partida">"Última partida: "</string>
+    <string name="borrar_historial">Borrar Historial</string>
 </resources>
