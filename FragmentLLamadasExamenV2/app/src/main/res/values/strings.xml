@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FragmentLLamadasExamenV2</string>
+    <string name="nombre_num">"Numero de Tlf: "</string>
+    <string name="nombre_e_s">Nº E/S </string>
 </resources>
