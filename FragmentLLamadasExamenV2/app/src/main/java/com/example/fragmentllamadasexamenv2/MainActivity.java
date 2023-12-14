@@ -3,6 +3,7 @@ package com.example.fragmentllamadasexamenv2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements FragmentTelefono.onListener {
 
@@ -26,9 +27,10 @@ public class MainActivity extends AppCompatActivity implements FragmentTelefono.
         for (FragmentTelefono fr : fragments) {
             if (fr.getNumTlfn().equals(num)) {
                 if (fr.isLlamadaEnCurso()) {
+                    Toast.makeText(this, "Telefono Ocupado", Toast.LENGTH_SHORT).show();
                     return false;
                 } else {
-                    fr.recibir(fragment.getNumTlfn(),">");
+                    fr.recibir(fragment.getNumTlfn(), ">");
                 }
             }
         }

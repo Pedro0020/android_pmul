@@ -59,7 +59,7 @@ public class FragmentTelefono extends Fragment {
         imagen.setOnClickListener(v -> {
             if (!txtMarcacion.getText().toString().isEmpty()) {
                 accionLLamada();
-            }else {
+            } else {
                 Toast.makeText(getContext(), "Introduzca un número", Toast.LENGTH_SHORT).show();
             }
         });
@@ -68,18 +68,15 @@ public class FragmentTelefono extends Fragment {
     }
 
     private void accionLLamada() {
+        numTlfnLLamada = txtMarcacion.getText().toString();
         if (numTlfnLLamada.equals(numTlfn)) {
-            numTlfnLLamada = txtMarcacion.getText().toString();
-        } else {
             Toast.makeText(getContext(), "No puedes llamar a tu mismo número", Toast.LENGTH_SHORT).show();
             return;
         }
         if (llamadaEnCurso) {
             listener.colgarLLamada(this, numTlfnLLamada);
             colgar();
-
         } else if (listener.llamada(this, numTlfnLLamada)) {
-
             recibir(numTlfnLLamada, "<");
         }
     }
