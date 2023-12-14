@@ -48,13 +48,7 @@ public class VotoActivity extends AppCompatActivity {
         sp.setAdapter(adp);
 
         // Paso 1: Crear una instancia del fragmento
-        FragmentVoto fragment = new FragmentVoto();
-        // Paso 2: Iniciar una transacción de fragmento
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        // Paso 3: Reemplazar o agregar el fragmento en el contenedor
-        transaction.replace(R.id.fragmentContainer, fragment);
-        // Paso 4: Confirmar la transacción
-        transaction.commit();
+        FragmentVoto fragment = (FragmentVoto) getSupportFragmentManager().findFragmentById(R.id.fragment1);
         fragment.setOnClickListener(new EventoClick() {
             @Override
             public void onClick() {

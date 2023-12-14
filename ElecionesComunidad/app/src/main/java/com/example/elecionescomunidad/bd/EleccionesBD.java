@@ -275,7 +275,7 @@ public class EleccionesBD extends SQLiteOpenHelper {
                         " WHERE " + CANDIDATOS_ID_CANDIDATO + " = ?", new String[]{String.valueOf(c.getId())});
 
                 if (cursor.moveToFirst()) {
-                    votosActuales = cursor.getInt(cursor.getColumnIndex(CANDIDATOS_NUM_VOTOS));
+                    votosActuales = cursor.getInt(cursor.getColumnIndexOrThrow(CANDIDATOS_NUM_VOTOS));
                 }
 
                 cursor.close();
@@ -301,6 +301,45 @@ public class EleccionesBD extends SQLiteOpenHelper {
         return filasActualizadas > 0;
     }
 
-//    vVERSION 2(menos codigo)
+    //    vVERSION 2(menos codigo)
+    public boolean addVotosCandidatos2(ArrayList<Candidato> candidatos) {
+        SQLiteDatabase db = getWritableDatabase();
+        Log.i("addVoto.inicio", "Inicia el método addVoto");
+        int filasActualizadas = 0;
 
+        try {
+            db.beginTransaction();
+            for (Candidato c : candidatos) {
+
+                // 1. Obtén el valor actual de CANDIDATOS_NUM_VOTOS
+                int votosActuales = 0;
+                Cursor cursor = db.rawQuery("SELECT " + CANDIDATOS_NUM_VOTOS + " FROM " + TABLE_CANDIDATOS +
+                        " WHERE " + CANDIDATOS_ID_CANDIDATO + " = ?", new String[]{String.valueOf(c.getId())});
+
+                if (cursor.moveToFirst()) {
+                    votosActuales = cursor.getInt(cursor.getColumnIndexOrThrow(CANDIDATOS_NUM_VOTOS));
+                }
+
+                cursor.close();
+
+                // 2. Incrementa el valor
+                int nuevosVotos = votosActuales + 1;
+
+                // 3. Actualiza la base de datos con el nuevo valor
+                ContentValues valores = new ContentValues();
+                valores.put(CANDIDATOS_NUM_VOTOS, nuevosVotos);
+
+                filasActualizadas = db.update(TABLE_CANDIDATOS, valores,
+                        CANDIDATOS_ID_CANDIDATO + " =?",
+                        new String[]{String.valueOf(c.getId())});
+            }
+            db.setTransactionSuccessful();
+        } catch (SQLException exc) {
+            Log.e("addVoto.Error", exc.getMessage());
+        } finally {
+            db.endTransaction();
+        }
+
+        return filasActualizadas > 0;
+    }
 }

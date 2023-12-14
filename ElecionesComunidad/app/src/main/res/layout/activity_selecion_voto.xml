@@ -27,8 +27,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <FrameLayout
-        android:id="@+id/fragmentContainer"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment1"
+        android:name="com.example.elecionescomunidad.fragments.FragmentVoto"
         android:layout_width="164dp"
         android:layout_height="89dp"
         android:layout_marginStart="123dp"
@@ -38,7 +39,9 @@
         app:layout_constraintBottom_toTopOf="@+id/txtResulados"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerEleccion" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerEleccion"
+        tools:layout="@layout/fragment_boton_voto" />
+
 
     <TextView
         android:id="@+id/txtResulados"
