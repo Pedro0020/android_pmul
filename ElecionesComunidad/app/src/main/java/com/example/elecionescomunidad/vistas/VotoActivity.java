@@ -49,7 +49,7 @@ public class VotoActivity extends AppCompatActivity {
 
         // Paso 1: Crear una instancia del fragmento
         FragmentVoto fragment = (FragmentVoto) getSupportFragmentManager().findFragmentById(R.id.fragment1);
-        fragment.setOnClickListener(new EventoClick() {
+        fragment.setOnCickListener(new EventoClick() {
             @Override
             public void onClick() {
                 voto();
